@@ -1,3 +1,13 @@
+# Adaptation of IETrans-SGG.pytorch repo to work on A10 gpus and more recent Pytorch versions
+
+This repo includes some changes made to the original implementation of IETrans from the paper "[Fine-Grained Scene Graph Generation with Data Transfer](https://arxiv.org/abs/2203.11654)" to make it work on on NVIDIA A10 GPUs with Python 3.12.x and Pytorch 2.4.0 (and related dependencies).
+
+The authors' original commits are preserved.
+
+---
+# Original README follows
+---
+
 # Internal and External Data Transfer (IETrans) for Scene Graph Generation
 
 This is the code for **ECCV 2022 (Oral)** paper "[Fine-Grained Scene Graph Generation with Data Transfer](https://arxiv.org/abs/2203.11654)".
@@ -10,19 +20,26 @@ Our paper get (1, 1, 2) from reviewers which is near to full marks (1, 1, 1).
 
 ## Quick links
 
-* [Overview](#overview)
-* [Install](#install)
-* [Dataset](#dataset)
-* [Object Detector](#object-detector)
-* [IETrans](#ietrans)
-    * [Preparation](#preparation)
-    * [VG-50-Training](#vg-50-training)
-    * [VG-1800-Training](#vg-1800-training)
-* [Demo](#demo)
-* [Tips](#tips)
-* [Bugs or questions?](#bugs-or-questions)
-* [Citation](#citation)
-* [Acknowledgement](#acknowledgement)
+- [Adaptation of IETrans-SGG.pytorch repo to work on A10 gpus and more recent Pytorch versions](#adaptation-of-ietrans-sggpytorch-repo-to-work-on-a10-gpus-and-more-recent-pytorch-versions)
+- [Original README follows](#original-readme-follows)
+- [Internal and External Data Transfer (IETrans) for Scene Graph Generation](#internal-and-external-data-transfer-ietrans-for-scene-graph-generation)
+  - [Recent Updates](#recent-updates)
+  - [Quick links](#quick-links)
+  - [Overview](#overview)
+  - [Install](#install)
+  - [Dataset](#dataset)
+  - [Object Detector](#object-detector)
+    - [Download Pre-trained Detector](#download-pre-trained-detector)
+    - [Pre-train Your Own Detector](#pre-train-your-own-detector)
+  - [IETrans](#ietrans)
+    - [Preparation](#preparation)
+    - [VG-50-Training](#vg-50-training)
+    - [VG-1800-Training](#vg-1800-training)
+  - [Demo](#demo)
+  - [Tips](#tips)
+  - [Bugs or questions?](#bugs-or-questions)
+  - [Citation](#citation)
+  - [Acknowledgement](#acknowledgement)
 
 ## Overview
 ![alt text](demo/teaser.png "Illustration of IETrans")
