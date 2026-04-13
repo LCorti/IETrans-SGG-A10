@@ -3,6 +3,7 @@ import logging
 import pickle
 from collections import OrderedDict
 
+import sys
 import torch
 
 from maskrcnn_benchmark.utils.model_serialization import load_state_dict
@@ -132,7 +133,7 @@ def _rename_weights_for_resnet(weights, stage_names):
 
 def _load_c2_pickled_weights(file_path):
     with open(file_path, "rb") as f:
-        if torch._six.PY3:
+        if sys.version_info[0] == 3:
             data = pickle.load(f, encoding="latin1")
         else:
             data = pickle.load(f)
